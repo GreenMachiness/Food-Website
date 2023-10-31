@@ -16,14 +16,14 @@ export default function MediaCard(props) {
         title={title}
       />
       <CardContent>
-        <Typography gutterBottom variant="h4" color="primary.main">
+        <Typography gutterBottom variant="h4" color="text">
         {title}
         </Typography>
         <Typography gutterBottom variant="h5" component="div">
-        {calories}
+        Calories: {calories}
         </Typography>
         <Typography gutterBottom variant="h5" component="div">
-        {servingCount}
+        Serves: {servingCount}
         </Typography>
 
 
