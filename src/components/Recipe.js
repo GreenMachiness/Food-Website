@@ -6,6 +6,7 @@ import Card from './Card'
 import Grid from '@mui/material/Grid';
 
 
+
 //** Setup (define helper functions and variables here)
 
 function Recipe(props) {
@@ -20,16 +21,16 @@ function Recipe(props) {
   }
   
 
-  // if (data.length === 0) {
-  //   return (
-  //     <Backdrop
-  //       sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
-  //       open={true}
-  //     >
-  //       <CircularProgress color="inherit" />
-  //     </Backdrop>
-  //   );
-  // }
+  if (data.length === 0) {
+    return (
+      <Backdrop
+        sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+        open={true}
+      >
+        <CircularProgress color="inherit" />
+      </Backdrop>
+    );
+  }
 
   //** Return JSX
   return (
@@ -52,7 +53,8 @@ function Recipe(props) {
           image={data.recipe.image}
           calories={data.recipe.calories}
           servingCount={data.recipe.yield}
-          />
+          >
+          </Card>
           </Grid>
           
 

@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client'
 import './index.css'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
+import { BrowserRouter } from "react-router-dom"
 
 async function deferRender() {
   if (process.env.NODE_ENV !== 'development') {
@@ -20,7 +21,9 @@ deferRender().then(() => {
   const root = ReactDOM.createRoot(document.getElementById('root'))
   root.render(
     <React.StrictMode>
-      <App />
+      <BrowserRouter> {/*opening tag*/}
+        <App />
+      </BrowserRouter> {/*closing tag*/}
     </React.StrictMode>
   )
 })
