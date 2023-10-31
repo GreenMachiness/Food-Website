@@ -5,11 +5,13 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import { Link } from 'react-router-dom';
+import Details from './RecipeDetails';
 
 export default function MediaCard(props) {
     const {title, image, calories, servingCount} = props
   return (
-    <Card sx={{ maxWidth: 300 }}>
+    <Card sx={{ maxWidth: 345 }}>
       <CardMedia
         sx={{ height: 140 }}
         image={image}
@@ -31,7 +33,10 @@ export default function MediaCard(props) {
       </CardContent>
       <CardActions>
         <Button size="small">Share</Button>
-        <Button size="small">Learn More</Button>
+        <Link to={`/recipedetails/${title}`}> 
+             <Button size="small">Learn More</Button>
+
+          </Link>
       </CardActions>
     </Card>
   );
