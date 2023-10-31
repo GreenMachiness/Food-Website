@@ -20,16 +20,16 @@ function Recipe(props) {
   }
   
 
-  if (data.length === 0) {
-    return (
-      <Backdrop
-        sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
-        open={true}
-      >
-        <CircularProgress color="inherit" />
-      </Backdrop>
-    );
-  }
+  // if (data.length === 0) {
+  //   return (
+  //     <Backdrop
+  //       sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+  //       open={true}
+  //     >
+  //       <CircularProgress color="inherit" />
+  //     </Backdrop>
+  //   );
+  // }
 
   //** Return JSX
   return (
@@ -43,16 +43,16 @@ function Recipe(props) {
     >
 
       {data.map((data, index) => {
-        console.log('title: ', data.hits[2])
+        console.log('title: ', data.hits.recipe)
         
         return (
           <Grid item xs={12} sm={9} md={6} lg={3} xl={1}>
-          <Card
+          {/* <Card
           title={data.hits[index].recipe.label}
-          image={data.hits[index].recipe.images.REGULAR}
+          image={data.hits[index].recipe.image}
           calories={data.hits[index].recipe.calories}
           servingCount={data.hits[index].recipe.yield}
-          />
+          /> */}
           </Grid>
           
 
