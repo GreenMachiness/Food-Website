@@ -10,7 +10,7 @@ import Recipe from './components/Recipe';
 
 const theme = createTheme( {
   palette: {
-    mode: 'dark',
+    mode: 'light',
     primary: {
       main: '#011c1e',
     },
