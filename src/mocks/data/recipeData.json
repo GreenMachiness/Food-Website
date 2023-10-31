@@ -1,14 +1,4 @@
-[{
-  "from": 1,
-  "to": 20,
-  "count": 10000,
-  "_links": {
-    "next": {
-      "href": "https://api.edamam.com/api/recipes/v2?q=chicken&app_key=7ca7a70806722687706cb7e7e8cccf64&_cont=CHcVQBtNNQphDmgVQntAEX4BYldtBAYEQ21GBWQaaldyDAQCUXlSB2ZCNl17BgcESmVBAjAaZ1RyUFFUEmAWB2tFMVQiBwUVLnlSVSBMPkd5BgMbUSYRVTdgMgksRlpSAAcRXTVGcV84SU4%3D&type=any&app_id=15f9f1a1",
-      "title": "Next page"
-    }
-  },
-  "hits": [
+ [
     {
       "recipe": {
         "uri": "http://www.edamam.com/ontologies/edamam.owl#recipe_b79327d05b8e5b838ad6cfd9576b30b6",
@@ -15497,5 +15487,3 @@
       }
     }
   ]
-}
-]

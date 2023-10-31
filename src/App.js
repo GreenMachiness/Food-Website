@@ -24,8 +24,8 @@ const theme = createTheme( {
 function App() {
   const [data, setData] = useState([])
   const [error, setError] = useState(null)
-  console.log("data: ", data)
-  console.log("error: ", error)
+  // console.log("data: ", data)
+  // console.log("error: ", error)
 
   //** Component Logic
   useEffect(() => {

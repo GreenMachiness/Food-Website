@@ -43,16 +43,16 @@ function Recipe(props) {
     >
 
       {data.map((data, index) => {
-        console.log('title: ', data.hits.recipe)
+        // console.log('title: ', data.recipe.label)
         
         return (
           <Grid item xs={12} sm={9} md={6} lg={3} xl={1}>
-          {/* <Card
-          title={data.hits[index].recipe.label}
-          image={data.hits[index].recipe.image}
-          calories={data.hits[index].recipe.calories}
-          servingCount={data.hits[index].recipe.yield}
-          /> */}
+          <Card
+          title={data.recipe.label}
+          image={data.recipe.image}
+          calories={data.recipe.calories}
+          servingCount={data.recipe.yield}
+          />
           </Grid>
           
 

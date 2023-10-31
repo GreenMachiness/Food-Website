@@ -9,14 +9,14 @@ import Typography from '@mui/material/Typography';
 export default function MediaCard(props) {
     const {title, image, calories, servingCount} = props
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 300 }}>
       <CardMedia
         sx={{ height: 140 }}
         image={image}
         title={title}
       />
       <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
+        <Typography gutterBottom variant="h4" color="primary.main">
         {title}
         </Typography>
         <Typography gutterBottom variant="h5" component="div">
