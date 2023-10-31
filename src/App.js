@@ -4,6 +4,8 @@ import Container from '@mui/material/Container';
 import { ThemeProvider, createTheme } from '@mui/material/styles'
 import React, { useState, useEffect } from "react"
 import Recipe from './components/Recipe';
+import { Routes, Route } from "react-router-dom"
+import RecipeDetails from './components/RecipeDetails';
 
 
 
@@ -24,7 +26,7 @@ const theme = createTheme( {
 function App() {
   const [data, setData] = useState([])
   const [error, setError] = useState(null)
-  // console.log("data: ", data)
+  // console.log("data.hits: ", data.hits)
   // console.log("error: ", error)
 
   //** Component Logic
@@ -37,20 +39,31 @@ function App() {
         return response.json();
       })
       .then((body) => {
-        console.log("output of fetch: ", body)
-        setData(body);
+        console.log("output of fetch: ", body.hits)
+        setData(body.hits);
       })
       .catch((error) => {
         setError(error.message)
       });
   }, []);
   return (
+   
     <ThemeProvider theme={theme}>
+
       <CssBaseline />
+
+    
       <Container maxWidth={'xl'}>
-      <Recipe data={data} error={error} />
+      <Routes> 
+      <Route path="/" element={<Recipe data={data} error={error} />}/>
+      <Route path="/recipedetails/:label" element={<RecipeDetails data={data} />} />
+
+
+      </Routes>
       </Container>
+
     </ThemeProvider>
+
   );
 }
 
