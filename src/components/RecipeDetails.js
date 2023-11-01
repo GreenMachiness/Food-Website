@@ -1,4 +1,3 @@
-
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import SearchAppBar from "./SearchAppBar";
@@ -25,7 +24,6 @@ function RecipeDetails(props) {
     setFilteredRecipes(filtered);
   };
 
-  
   const selectedRecipe = data.find((recipe) => recipe.recipe.label === label); // .find the selected recipe based on the label
 
   if (!selectedRecipe) {
@@ -35,6 +33,8 @@ function RecipeDetails(props) {
   return (
     <div>
       <SearchAppBar onSearch={handleSearch} recipes={data} />
+      <br></br>
+      <br></br>
       <h1>Recipe Details for: {label}</h1>
       <p>
         <h2>Calories:</h2> {selectedRecipe.recipe.calories} kcal
@@ -77,8 +77,6 @@ function RecipeDetails(props) {
           </a>
         </h2>
       </p>
-
-
     </div>
   );
 }

@@ -11,6 +11,7 @@ import Details from './RecipeDetails';
 export default function MediaCard(props) {
     const {title, image, calories, servingCount} = props
   return (
+            <Link to={`/recipedetails/${title}`} style={{ textDecoration: 'none' }}> 
     <Card sx={{ maxWidth: 345 }}>
       <CardMedia
         sx={{ height: 140 }}
@@ -31,13 +32,14 @@ export default function MediaCard(props) {
 
 
       </CardContent>
-      <CardActions>
+      {/* <CardActions>
         <Button size="small">Share</Button>
-        <Link to={`/recipedetails/${title}`}> 
+
              <Button size="small">Learn More</Button>
 
-          </Link>
-      </CardActions>
+          
+      </CardActions> */}
     </Card>
+    </Link>
   );
 }
