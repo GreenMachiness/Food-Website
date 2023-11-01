@@ -128,7 +128,7 @@ export default function SearchAppBar({ onSearch, data }) {// pass props
               }}
             />
           </Search>
-        </Toolbar>
+          </Toolbar>
       </AppBar>
     </Box>
   );
