@@ -13,8 +13,7 @@ function Sidebar({ healthLabels, onFilterChange }) {
       setSelectedFilters(
         (prevFilters) => prevFilters.filter((filter) => filter !== label) //function that will make state change depending on checkbox
       );
-    } else 
-    {
+    } else {
       setSelectedFilters((prevFilters) => [...prevFilters, label]); //  if unchecking a box it will crash app.
     }
   };
@@ -24,7 +23,6 @@ function Sidebar({ healthLabels, onFilterChange }) {
   }, [selectedFilters, onFilterChange]); //useeffect will change the rendering on recipe.js
 
   return (
-    
     <Paper sx={{ padding: 2 }}>
       <FormGroup>
         <div style={{ display: "flex", flexWrap: "wrap" }}>
