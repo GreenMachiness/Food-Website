@@ -3,6 +3,7 @@ import Checkbox from "@mui/material/Checkbox";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormGroup from "@mui/material/FormGroup";
 import Paper from "@mui/material/Paper";
+import { Button } from "@mui/material";
 
 function Sidebar({ healthLabels, onFilterChange }) {
   //pass props from recipe.js

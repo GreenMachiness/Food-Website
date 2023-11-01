@@ -45,7 +45,7 @@ function RecipeDetails(props) {
       <SearchAppBar onSearch={handleSearch} recipes={data} />
       <br></br>
       <br></br>
-      <h1>Recipe Details for: {label}</h1>
+      <h1>{label}</h1>
       <p>
         <h2>Calories:</h2> <h3>{selectedRecipe.recipe.calories} kcal</h3>
       </p>
@@ -75,7 +75,7 @@ function RecipeDetails(props) {
             style={{
               display: "flex",
               alignItems: "center",
-              gap: "8px",
+              gap: "10px",
               cursor: "pointer",
             }}
           >
