@@ -5,7 +5,7 @@ import FormGroup from "@mui/material/FormGroup";
 import Paper from "@mui/material/Paper";
 
 function Sidebar({ healthLabels, onFilterChange }) {
-  //pass props from app.js
+  //pass props from recipe.js
   const [selectedFilters, setSelectedFilters] = useState([]); //state hooks
 
   const handleFilterChange = (label) => {
