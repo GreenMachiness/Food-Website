@@ -6,7 +6,7 @@ import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from "@mui/material/Alert";
 import Button from "@mui/material/Button";
 import SimilarRecipesSidebar from "./RecipeSidebar";
-
+import ViewedRecipe from "./ViewedRecipe";
 
 
 function RecipeDetails(props) {
@@ -28,6 +28,10 @@ function RecipeDetails(props) {
     // Check if the current recipe is bookmarked when the component loads
     const bookmarks = JSON.parse(localStorage.getItem("bookmarks")) || [];//checks if it is in localstorage on bookmarks
     setIsBookmarked(bookmarks.includes(label));//if the label has the same name, .includes 
+  }, [label]);
+
+  useEffect(() => {
+    addViewedRecipe(label);
   }, [label]);
 
   const handleSearch = (query) => {
@@ -66,6 +70,13 @@ function RecipeDetails(props) {
     }
 
     setIsBookmarked(!isBookmarked);//state hooooooks
+  };
+  const addViewedRecipe = (label) => {//need function to log my viewedrecipe in localstorage
+    const viewedRecipes = JSON.parse(localStorage.getItem("viewedRecipes")) || [];//gets the viewedrecipes in localstorage and turns it into an object, OR an empty array if its not there 
+    if (!viewedRecipes.includes(label)) {
+      viewedRecipes.push(label);//if the label of the recipedetails does not have it on the viewedrecipe local storage, then it will push it in through
+      localStorage.setItem("viewedRecipes", JSON.stringify(viewedRecipes));// then back into string to go back into localstorage
+    }
   };
   return (
     <div>
@@ -144,6 +155,7 @@ function RecipeDetails(props) {
           </a>
         </h2>
       </p>
+
       <Snackbar
         open={snackbarOpen}
         autoHideDuration={2500}

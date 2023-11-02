@@ -46,7 +46,7 @@ function Recipe(props) {
       );
     });
 
-    for (let i = filteredData.length - 1; i > 0; i--) {
+    for (let i = filteredData.length - 1; i > 0; i--) {// let it start at the end of the array, if there are still recipes, it keeps going, and keeps going till theres no more recipes left
       //need to loopy the loop the data
       const r = Math.floor(Math.random() * (i + 1)); //math.floor rounds to whole number, math.random is gives a random number
       [filteredData[i], filteredData[r]] = [filteredData[r], filteredData[i]]; // i  and r has values of numbers where it shuffles into the list of recipes, making each recipe to have an equal chance of getting into the shuffledData(and not get salads all the time, copied from stackoverflow.)
