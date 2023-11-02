@@ -5,6 +5,8 @@ import ShareIcon from "@mui/icons-material/Share";
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from "@mui/material/Alert";
 import Button from "@mui/material/Button";
+import SimilarRecipesSidebar from "./RecipeSidebar"; 
+
 
 function RecipeDetails(props) {
   const { data } = props;
@@ -58,7 +60,7 @@ function RecipeDetails(props) {
           alt={selectedRecipe.recipe.label}
         />
       </p>
-      <div
+            <div
         onClick={() => {
           const tempInput = document.createElement("input"); //makes an input through this code
           tempInput.value = selectedRecipe.recipe.url; //makes the URL the value of tempinput
@@ -124,6 +126,8 @@ function RecipeDetails(props) {
           Recipe URL copied to clipboard!
         </MuiAlert>
       </Snackbar>
+      <SimilarRecipesSidebar selectedRecipe={selectedRecipe} data={data} />
+
     </div>
   );
 }
