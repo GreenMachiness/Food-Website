@@ -19,6 +19,10 @@ import Button from "@mui/material/Button";
 import LocalPizzaIcon from "@mui/icons-material/LocalPizza";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
 import HistoryIcon from '@mui/icons-material/History';
+import Brightness4Icon from "@mui/icons-material/Brightness4";
+import Brightness7Icon from "@mui/icons-material/Brightness7";
+
+
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -60,7 +64,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export default function SearchAppBar({ onSearch, data }) {
+export default function SearchAppBar({ onSearch, data, toggleThemeMode, themeMode }) {
   // pass props
   const [searchQuery, setSearchQuery] = useState("");
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -85,6 +89,7 @@ export default function SearchAppBar({ onSearch, data }) {
     //searchbar searchquery
     onSearch(searchQuery);
   };
+
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -122,7 +127,7 @@ export default function SearchAppBar({ onSearch, data }) {
             </Link>
             <Link to="/bookmarks">
               <IconButton>
-                <LocalPizzaIcon sx={{ fontSize: 35 }} />
+                <BookmarkIcon sx={{ fontSize: 35 }} />
                 Bookmarks
               </IconButton>
             </Link>
@@ -132,6 +137,9 @@ export default function SearchAppBar({ onSearch, data }) {
                 History
               </IconButton>
             </Link>
+            {/* <IconButton onClick={toggleThemeMode} color="inherit">
+            {themeMode === "dark" ? <Brightness7Icon /> : <Brightness4Icon />}
+          </IconButton> */}
           </Typography>
           <Search>
             <SearchIconWrapper>

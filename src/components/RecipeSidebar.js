@@ -28,7 +28,7 @@ const SimilarRecipesSidebar = ({ selectedRecipe, data }) => {
 
   return (
     <div className="similar-recipes-sidebar">
-      <h3>Similar Recipes</h3>
+      <h3>Similar Recipes:</h3>
       <div className="similar-recipes-container">
         {similarRecipes.map((recipe) => (
           <Link
