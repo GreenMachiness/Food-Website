@@ -25,6 +25,9 @@ function Sidebar({ healthLabels, onFilterChange }) {
 
   return (
     <Paper sx={{ padding: 2 }}>
+      <div>
+        <h3>Allergens:</h3>
+        </div>
       <FormGroup>
         <div style={{ display: "flex", flexWrap: "wrap" }}>
           {healthLabels.map(
@@ -43,8 +46,10 @@ function Sidebar({ healthLabels, onFilterChange }) {
               />
             )
           )}
+          
         </div>
       </FormGroup>
+
     </Paper> //material UI is great
   );
 }

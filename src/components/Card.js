@@ -14,7 +14,7 @@ export default function MediaCard(props) {
             <Link to={`/recipedetails/${title}`} style={{ textDecoration: 'none' }}> 
     <Card sx={{ maxWidth: 345 }}>
       <CardMedia
-        sx={{ height: 140 }}
+        sx={{ height: 300 }}
         image={image}
         title={title}
       />

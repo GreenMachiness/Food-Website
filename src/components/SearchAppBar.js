@@ -18,6 +18,7 @@ import ListItem from "@mui/material";
 import Button from "@mui/material/Button";
 import LocalPizzaIcon from "@mui/icons-material/LocalPizza";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
+import HistoryIcon from '@mui/icons-material/History';
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -116,11 +117,19 @@ export default function SearchAppBar({ onSearch, data }) {
             <Link to={".."}>
               <IconButton>
                 <HomeIcon sx={{ fontSize: 40 }} />
+                Home
               </IconButton>
             </Link>
             <Link to="/bookmarks">
               <IconButton>
                 <LocalPizzaIcon sx={{ fontSize: 35 }} />
+                Bookmarks
+              </IconButton>
+            </Link>
+            <Link to="/viewedrecipe">
+              <IconButton>
+                <HistoryIcon sx={{ fontSize: 35 }} />
+                History
               </IconButton>
             </Link>
           </Typography>
