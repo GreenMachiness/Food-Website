@@ -18,7 +18,7 @@ function RecipeDetails(props) {
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredRecipes, setFilteredRecipes] = useState(data);
   const [snackbarOpen, setSnackbarOpen] = useState(false);
-  const [isBookmarked, setIsBookmarked] = useState(false);
+  const [isBookmarked, setIsBookmarked] = useState(false);//use statesssss
 
   useEffect(() => {
     setFilteredRecipes(data);
@@ -26,14 +26,14 @@ function RecipeDetails(props) {
 
   useEffect(() => {
     // Check if the current recipe is bookmarked when the component loads
-    const bookmarks = JSON.parse(localStorage.getItem("bookmarks")) || [];
-    setIsBookmarked(bookmarks.includes(label));
+    const bookmarks = JSON.parse(localStorage.getItem("bookmarks")) || [];//checks if it is in localstorage on bookmarks
+    setIsBookmarked(bookmarks.includes(label));//if the label has the same name, .includes 
   }, [label]);
 
   const handleSearch = (query) => {
     setSearchQuery(query);
     const filtered = data.filter((recipe) =>
-      recipe.recipe.label.toLowerCase().includes(query.toLowerCase())
+      recipe.recipe.label.toLowerCase().includes(query.toLowerCase())// added searchquery function on recipedetails but would not re-render
     );
     setFilteredRecipes(filtered);
   };
@@ -53,20 +53,19 @@ function RecipeDetails(props) {
   const handleBookmark = () => {
     const bookmarks = JSON.parse(localStorage.getItem("bookmarks")) || [];
 
-    if (!isBookmarked) {
-      // Add the recipe to bookmarks
-      bookmarks.push(label);
-      localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
+    if (!isBookmarked) {//true or false
+  
+      bookmarks.push(label);//if true .push into the localstorage
+      localStorage.setItem("bookmarks", JSON.stringify(bookmarks));//makes stored label into string in localstorage in bookmark
     } else {
-      // Remove the recipe from bookmarks
-      const index = bookmarks.indexOf(label);
-      if (index > -1) {
-        bookmarks.splice(index, 1);
-        localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
+      const index = bookmarks.indexOf(label);// if false, 
+      if (index > -1) {// the label is found in localstorage
+        bookmarks.splice(index, 1);//button will remove the label instead from local storage
+        localStorage.setItem("bookmarks", JSON.stringify(bookmarks));//mremoves the label from localstorage
       }
     }
 
-    setIsBookmarked(!isBookmarked);
+    setIsBookmarked(!isBookmarked);//state hooooooks
   };
   return (
     <div>
@@ -116,7 +115,7 @@ function RecipeDetails(props) {
       <Button
         variant="contained"
         color={isBookmarked ? "secondary" : "primary"}
-        onClick={handleBookmark}
+        onClick={handleBookmark}//depending on state, this would change the button from bookmark and remove from bookmarks
       >
         {isBookmarked ? "Remove from Bookmarks" : "Bookmark"}
       </Button>
