@@ -8,6 +8,8 @@ import { Routes, Route } from "react-router-dom";
 import RecipeDetails from "./components/RecipeDetails";
 import SearchAppBar from "./components/SearchAppBar";
 
+import Bookmarks from "./components/Bookmarks";
+
 const theme = createTheme({
   palette: {
     mode: "light",
@@ -49,11 +51,10 @@ function App() {
       <CssBaseline />
       <SearchAppBar data={data} />
       <Container maxWidth={"xl"}>
-        
         <Routes>
           <Route path="/" element={<Recipe data={data} error={error} />} />
-          <Route path="/recipedetails/:label" element={<RecipeDetails data={data} />}
-          />
+          <Route path="/recipedetails/:label" element={<RecipeDetails data={data} />} />
+          <Route path="/bookmarks" element={<Bookmarks data={data} />} />
         </Routes>
       </Container>
     </ThemeProvider>

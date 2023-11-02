@@ -5,21 +5,30 @@ import ShareIcon from "@mui/icons-material/Share";
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from "@mui/material/Alert";
 import Button from "@mui/material/Button";
-import SimilarRecipesSidebar from "./RecipeSidebar"; 
+import SimilarRecipesSidebar from "./RecipeSidebar";
+
 
 
 function RecipeDetails(props) {
   const { data } = props;
   const { label } = useParams();
+
   console.log("data:", data);
 
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredRecipes, setFilteredRecipes] = useState(data);
   const [snackbarOpen, setSnackbarOpen] = useState(false);
+  const [isBookmarked, setIsBookmarked] = useState(false);
 
   useEffect(() => {
     setFilteredRecipes(data);
   }, [data]);
+
+  useEffect(() => {
+    // Check if the current recipe is bookmarked when the component loads
+    const bookmarks = JSON.parse(localStorage.getItem("bookmarks")) || [];
+    setIsBookmarked(bookmarks.includes(label));
+  }, [label]);
 
   const handleSearch = (query) => {
     setSearchQuery(query);
@@ -41,7 +50,24 @@ function RecipeDetails(props) {
     }
     setSnackbarOpen(false);
   };
+  const handleBookmark = () => {
+    const bookmarks = JSON.parse(localStorage.getItem("bookmarks")) || [];
 
+    if (!isBookmarked) {
+      // Add the recipe to bookmarks
+      bookmarks.push(label);
+      localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
+    } else {
+      // Remove the recipe from bookmarks
+      const index = bookmarks.indexOf(label);
+      if (index > -1) {
+        bookmarks.splice(index, 1);
+        localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
+      }
+    }
+
+    setIsBookmarked(!isBookmarked);
+  };
   return (
     <div>
       <SearchAppBar onSearch={handleSearch} recipes={data} />
@@ -60,7 +86,7 @@ function RecipeDetails(props) {
           alt={selectedRecipe.recipe.label}
         />
       </p>
-            <div
+      <div
         onClick={() => {
           const tempInput = document.createElement("input"); //makes an input through this code
           tempInput.value = selectedRecipe.recipe.url; //makes the URL the value of tempinput
@@ -72,7 +98,7 @@ function RecipeDetails(props) {
         }}
         style={{ cursor: "pointer" }}
       >
-        <Button variant="contained" size="small" >
+        <Button variant="contained" size="small">
           <div
             style={{
               display: "flex",
@@ -82,10 +108,18 @@ function RecipeDetails(props) {
             }}
           >
             <ShareIcon sx={{ fontSize: 20 }} />
-            <span style={{ fontSize: 14 }}>Share</span>
+            <span style={{ fontSize: 15 }}>Share</span>
           </div>
         </Button>
       </div>
+      <br></br>
+      <Button
+        variant="contained"
+        color={isBookmarked ? "secondary" : "primary"}
+        onClick={handleBookmark}
+      >
+        {isBookmarked ? "Remove from Bookmarks" : "Bookmark"}
+      </Button>
       <p>
         <h2>Allergens:</h2>
         <ul>
@@ -127,7 +161,6 @@ function RecipeDetails(props) {
         </MuiAlert>
       </Snackbar>
       <SimilarRecipesSidebar selectedRecipe={selectedRecipe} data={data} />
-
     </div>
   );
 }
