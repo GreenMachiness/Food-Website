@@ -12,16 +12,17 @@ const SimilarRecipesSidebar = ({ selectedRecipe, data }) => {
     return null;
   }
 
-  // Get the ingredients of the selected recipe
-  const selectedIngredients = selectedRecipe.recipe.ingredientLines;
+  const selectedIngredients = selectedRecipe.recipe.ingredientLines; // get the ingredients of the selected recipe
 
- 
-  const similarRecipes = data.filter((recipe) => {//filter recipes if they have one or more ingredients 
-    const commonIngredients = recipe.recipe.ingredientLines.some((ingredient) =>
-      selectedIngredients.includes(ingredient)
+  const similarRecipes = data.filter((recipe) => {
+    //create new array with .filter
+    const commonIngredients = recipe.recipe.ingredientLines.some(
+      (
+        ingredient //looks for ingredients at the ingredientlines that are similar,
+      ) => selectedIngredients.includes(ingredient) //if true it would add to the list of similar Recipes
     );
     return (
-      commonIngredients && recipe.recipe.label !== selectedRecipe.recipe.label
+      commonIngredients && recipe.recipe.label !== selectedRecipe.recipe.label //added not equal operator so that it wont render the recipe in we're in
     );
   });
 
@@ -31,17 +32,16 @@ const SimilarRecipesSidebar = ({ selectedRecipe, data }) => {
       <div className="similar-recipes-container">
         {similarRecipes.map((recipe) => (
           <Link
-            to={`/recipedetails/${recipe.recipe.label}`}
+            to={`/recipedetails/${recipe.recipe.label}`} //link to that recipe detail
             key={recipe.recipe.label}
             style={{ textDecoration: "none" }}
-            onClick={flyMeToTheTop} 
-
+            onClick={flyMeToTheTop} //RocketMan
           >
             <Card
               title={recipe.recipe.label}
               image={recipe.recipe.image}
               calories={recipe.recipe.calories}
-              servingCount={recipe.recipe.yield}
+              servingCount={recipe.recipe.yield} //heart of the cards
             />
           </Link>
         ))}
